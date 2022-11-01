@@ -7,18 +7,18 @@ const bulkTransOperations = async(req,res) =>{
     const t =await sequelize.transaction()
     try{
         console.log(req.body)
-        await Student.bulkCreate(req.body,{
+        await Student.bulkCreate(req.body[0],{
             transaction:t
         })
-        await Student.findOne({ id: req.body.id },{
+        await Student.findOne({ id: req.body[1].id },{
             transaction:t
         })
         await Student.findAll({
             transaction:t
         })
-        await Student.update(req.body,{
+        await Student.update(req.body[2],{
             where:{
-                id:req.body.id
+                id:req.body[2].id
             }
         },{
             transaction:t
