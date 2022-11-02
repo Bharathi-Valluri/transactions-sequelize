@@ -2,7 +2,6 @@ const {sequelize} =require('../database')
 const appConst=require('../router/constants')
 const Student =require('../model/transcation')
 const { response } = require('express')
-const { AuthenticationMD5Password } = require('pg-protocol/dist/messages')
 
 const bulkTransOperations = async(req,res) =>{
     const t =await sequelize.transaction()
